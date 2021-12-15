@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+
+    let N = parseInt(prompt('Nhập số nguyên N:'));
+    let before = 0;
+    let beforeBefore = 1;
+    let fibo;
+    let fiboString = 'Dãy Fibonacci: 0 1 ';
+
+    while(true){ // lap vo han
+        fibo = before + beforeBefore;
+
+        fiboString += fibo + ' ';
+
+        if (fibo % N ===0){
+            break;
+        }
+        beforeBefore = before;
+        before = fibo;
+    }
+    document.write('Số đầu tiên trong dãy Fibonacci chia hết cho '+ N + ' là: '+ fibo);
+    document.write('<br>');
+    document.write(fiboString);
+
+</script>
+</body>
+</html>

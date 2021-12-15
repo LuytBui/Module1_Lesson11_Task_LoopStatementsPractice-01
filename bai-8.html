@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" onclick="play()" value="Chơi"><br>
+
+
+<script>
+    let MAX_TURNS = 3;
+
+    function play() {
+        let min = parseInt(prompt('Nhập giới hạn dưới: '));
+        let max = parseInt(prompt('Nhập giới hạn trên: '));
+        let number = min + (max - min) * Math.random(); // tạo số ngẫu nhiên: số thực
+        console.log('F ' + number);
+        number = Math.floor(number);                // làm tròn thành số nguyên
+        console.log('I ' + number);
+        turns = 0;      // số lượt chơi
+        let win = false;
+        while (turns < MAX_TURNS) {
+            turns++; // bắt đầu 1 lượt
+            let message = 'Lượt' + turns + '. Nhập số bạn đoán: ';
+
+            if (turns !== 1) {
+                message = 'Đoán sai. \n' + message;
+            }
+
+            let guess = parseInt(prompt(message));
+            if (guess === number) {
+                win = true;
+                alert('Chúc mừng. \nBạn đã đoán đúng.');
+                break;
+            }
+
+        }
+        if (!win) {
+            alert('Rất tiếc. \nĐã quá 3 lượt.');
+        }
+    }
+</script>
+</body>
+</html>
